@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+body{font-family:Arial,Helvetica,Tahoma,sans-serif;font-size:14px}
+li{margin-bottom:14px}
+code{font-size:14px}
+div{padding:3px 0;}
+input{font-size:12px;font-weight:bolder;vertical-align:-2px;}
+button{vertical-align:middle;}
+.none{display:none;}
+#pre_new_css_name{width:200px;color:#009966;}
+#pop_set{width:360px;}
+#pop_save{width:180px;}
+#file_content{max-height:500px;overflow:auto;word-break:break-all;}
+#set_hzname{width:70px;}
+#other_path{width:80%;}
+#hint_div{padding:50ox;text-align:center;}
+#floatBoxBg{display:none;width:100%;height:100%;background:#000;position:absolute;top:0;left:0;}
+.floatBox{border:#666 5px solid;width:300px;position:absolute;top:50%;left:50%;margin-top:-150px;padding:0;}
+.floatBox .title{height:23px;padding:7px 10px 0;background:#333;color:#fff;}
+.floatBox .title h4{float:left;padding:0;margin:0;font-size:14px;line-height:16px;}
+.floatBox .title span{float:right;cursor:pointer;}
+.floatBox .content{padding:10px;background:#fff;}

@@ -1,0 +1,377 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="utf-8" />
+		<title>关于 CSS Sprites 样式生成工具</title>
+		<style type="text/css">
+			body {
+				padding: 10px;
+				font-family: Arial, Helvetica, Tahoma, sans-serif;
+				font-size: 12px
+			}
+		</style>
+		<script type="text/javascript" src="lib/air/AIRAliases.js"></script>
+		<script type="text/javascript">
+			function openInBrowser(url){
+			    air.navigateToURL(new air.URLRequest(url));
+			}
+		</script>
+	</head>
+	<body>
+		<h1>样式文件合并工具 mergeCSS</h1>
+		<h2>简介</h2>
+		<p>
+			程序名称：样式文件合并工具 mergeCSS
+		</p>
+		<p>
+			主要功能：合并、压缩样式文件
+		</p>
+		<p>
+			&copy; 2009 by <a href="#" onclick="openInBrowser('http://www.cssforest.org/blog/index.php?s=about')">GhostZhang</a>
+		</p>
+		<p>
+			官方地址：<a href="#" onclick="openInBrowser('http://www.cssforest.org/blog/index.php?c=mergecss')">http://www.cssforest.org/blog/index.php?c=mergecss</a>
+		</p>
+		<h2>版本信息</h2>
+		<p>
+			mergeCSS v1.9.20130116
+			<br/>
+			(add)图片版本控制支持IE滤镜AlphaImageLoader
+		</p>
+		<p>
+			mergeCSS v1.9.20121023
+			<br/>
+			(fix)content:""}时引号处理的问题
+		</p>
+		<p>
+			mergeCSS v1.9.20110301
+			<br/>
+			(fix)background:#000 url();时图片版本添加不了图片版本
+		</p>
+		<p>
+			mergeCSS v1.9.20101222
+			<br/>
+			(fix)图片版本undefined
+		</p>
+		<p>
+			mergeCSS v1.9.20100904
+			<br/>
+			(fix)“Ctrl+S”失效
+		</p>
+		<p>
+			mergeCSS v1.9.20100902
+			<br/>
+			(fix)文件名中有“.”时文件类型判断出错
+			<br/>
+			(add)自动保存设置
+			<br/>
+			(add)快速保存支持其它目录
+		</p>
+		<p>
+			mergeCSS v1.9.20100831
+			<br/>
+			(add)“去除最后一个分号”选项
+			<br/>
+			(add)保存到“其它目录”支持直接输入路径
+		</p>
+		<p>
+			mergeCSS v1.9.20100719
+			<br/>
+			(add)保存文件名可修改
+			<br/>
+			(add)时间后缀中的日期输出为8位
+		</p>
+		<p>
+			mergeCSS v1.9.20100601
+			<br/>
+			(fix)多文件模式第一个文件无法保存
+			<br/>
+			(add)支持@import "xxx.css"格式
+			<br/>
+			(add)命令行参数 “mergeCSS 样式路径 -i -n -q”，-i:保留外链；-n:原文件名保存；-q:快速保存。
+		</p>
+		<p>
+			mergeCSS v1.9.20100507
+			<br/>
+			(fix)保存方式调整
+		</p>
+		<p>
+			mergeCSS v1.9.20100423
+			<br/>
+			(fix)文件列表保存、读取失败
+			<br/>
+			(add)修改了“原文件名保存”的实现方式
+			<br/>
+			(add)支持命令行操作带参数执行
+			<br/>
+			(add)文件列表中可设定个文件的输入输出编码
+		</p>
+		<p>
+			mergeCSS v1.8.20100414
+			<br/>
+			(fix)windows下加入右键菜单失效
+		</p>
+		<p>
+			mergeCSS v1.8.20100408
+			<br/>
+			(add)针对无签名UTF8和GB2312提供输入编码的选择
+		</p>
+		<p>
+			mergeCSS v1.8.201003246
+			<br/>
+			(fix)保存到桌面选项无效
+			<br/>
+			(fix)备份文件的文件名不能还原
+		</p>
+		<p>
+			mergeCSS v1.8.20100324
+			<br/>
+			(fix0px替换问题
+		</p>
+		<p>
+			mergeCSS v1.8.20100321
+			<br/>
+			(fix)mac下备份文件的文件名不能还原
+			<br/>
+			(add)支持background定义中的url('...')
+			<br/>
+			(add)去除值为0的单位
+		</p>
+		<p>
+			mergeCSS v1.8.20100205
+			<br/>
+			(fix)content不为空时压缩结果错误
+		</p>
+		<p>
+			mergeCSS v1.8.20100204
+			<br/>
+			(fix)content为空时被误认为错误
+		</p>
+		<p>
+			mergeCSS v1.8.20100128
+			<br/>
+			(add)简单的纠错
+		</p>
+		<p>
+			mergeCSS v1.8.20091226
+			<br/>
+			(fix)更新指定图片版本时未去掉原版本
+			<br/>
+			(add)自动识别文件编码
+			<br/>
+			(add)输出编码选择
+			<br/>
+			(add)生成添加、卸载系统右键菜单注册文件
+			<br/>
+			(add)批处理模式添加输出编码支持
+		</p>
+		<p>
+			mergeCSS v1.8.20091225
+			<br/>
+			(fix)import文件未预加载 
+			<br/>
+			(add)优化路径检查算法
+			<br/>
+			(add)程序图标
+			<br/>
+			(add)关于
+		</p>
+		<p>
+			mergeCSS v1.8.20091220
+			<br/>
+			(fix)文件列表设置缺失
+		</p>
+		<p>
+			mergeCSS v1.8.20091219
+			<br/>
+			(fix)单文件模式下不可选保存目录
+			<br/>
+			(add)以原文件名保存时备份文件增加版本
+			<br/>
+			(add)压缩备份文件时以原文件名保存
+		</p>
+		<p>
+			mergeCSS v1.8.20091209
+			<br/>
+			(fix)各模式切换时保存方式出现混乱
+			<br/>
+			(fix)保存样式文件出错
+			<br/>
+			(add)添加到windows系统右键菜单
+		</p>
+		<p>
+			mergeCSS v1.8.20091208
+			<br/>
+			(fix)无法以多文件模式处理文件
+			<br/>
+			(add)单文件模式，使用“快速保存”时支持多个文件批量处理
+			<br/>
+			(add)关联到样式文件类型
+		</p>
+		<p>
+			mergeCSS v1.8.20091207
+			<br/>
+			(fix)快速保存失效
+			<br/>
+			(add)将“单文件快速保存”模式并入“单文件”模式中
+			<br/>
+			(add)单文件模式默认选中“保留import”
+		</p>
+		<p>
+			mergeCSS v1.8.20091204
+			<br/>
+			(add)修改处理模式的切换方式，添加快捷键
+			<br/>
+			(add)修改另存到其它目录时的选择对话框
+		</p>
+		<p>
+			mergeCSS v1.8.20091203
+			<br/>
+			(fix)压缩为一行时图片版本控制引起文件内容被截断
+			<br/>
+			(add)批量处理时支持原文件名保存
+		</p>
+		<p>
+			mergeCSS v1.8.20091202
+			<br/>
+			(add)以同文件名生成文件，备份原文件
+		</p>
+		<p>
+			mergeCSS v1.8.20091130
+			<br/>
+			(add)批量处理时加入图片版本处理
+			<br/>
+			(add)批处理模式下设置改为只读
+		</p>
+		<p>
+			mergeCSS v1.8.20091127
+			<br/>
+			(add)图片版本号更新
+			<br/>
+			(add)只更新部分图片的版本号
+			<br/>
+			(add)去除已有版本号
+		</p>
+		<p>
+			mergeCSS v1.8.20091126
+			<br/>
+			(add)图片路径加版本号
+		</p>
+		<p>
+			mergeCSS v1.8.20091120
+			<br/>
+			(add)批处理时使用文件列表中的设置
+			<br/>
+			(add)保存包含非本地文件优化
+		</p>
+		<p>
+			mergeCSS v1.8.20091118
+			<br/>
+			(fix)类名中换行压缩为空格
+			<br/>
+			(fix)读取非本地文件时预览需刷新
+			<br/>
+			(fix)保存时文件名重复
+			<br/>
+			(add)非本地文件的操作提示
+		</p>
+		<p>
+			mergeCSS v1.7.20091107
+			<br/>
+			(fix)模式切换时部分选项未初始化
+			<br/>
+			(add)批量处理模式
+			<br/>
+			(add)自定义后缀名
+			<br/>
+			(add)自定义验证标记
+			<br/>
+			(add)打开文件列表时确认处理方式
+		</p>
+		<p>
+			mergeCSS v1.6.20091104
+			<br/>
+			(fix)多文件模式下文件类型无判断
+			<br/>
+			(add)读取文件列表
+			<br/>
+			(add)保存文件列表
+			<br/>
+			(add)界面调整
+			<br/>
+			(add)快捷键
+		</p>
+		<p>
+			mergeCSS v1.5.20091103
+			<br/>
+			(add)import样式路径替换
+			<br/>
+			(add)样式自动预览
+		</p>
+		<p>
+			mergeCSS v1.5.1 2009-10-25
+			<br/>
+			(fix)文件名预览显示不同步
+			<br/>
+			(add)界面调整
+		</p>
+		<p>
+			mergeCSS v1.5 2009-10-24
+			<br/>
+			(fix)不同平台间的路径兼容问题
+			<br/>
+			(add)文件名预览
+			<br/>
+			(add)在线更新
+		</p>
+		<p>
+			mergeCSS v1.4 2009-9-29
+			<br/>
+			(fix)多文件选择取消合并时文件不对
+			<br/>
+			(fix)import不能为“http://”开头
+			<br/>
+			(add)多文件模式下禁用“保留内链文件”功能
+			<br/>
+			(add)读取网络上的文件
+			<br/>
+			(add)文件内链路径替换
+		</p>
+		<p>
+			mergeCSS v1.3 2009-9-27
+			<br/>
+			(add)单文件与多文件处理开关
+		</p>
+		<p>
+			mergeCSS v1.2 2009-9-24
+			<br/>
+			(add)压缩成一行的选项
+			<br/>
+			(add)增加“单文件、多文件、单文件快速保存”三种处理模式
+		</p>
+		<p>
+			mergeCSS v1.1 2009-9-13
+			<br/>
+			(add)选择需要合并的文件
+			<br/>
+			(add)选择是否保留import文件
+			<br/>
+			(add)选择是否转换import路径
+			<br/>
+			(add)保存到桌面、文件目录或自选目录
+		</p>
+		<p>
+			mergeCSS v1.0 2009-8-25
+			<br/>
+			(add)拖动添加文件
+			<br/>
+			(add)文件类型检查
+			<br/>
+			(add)合并样式文件(无外链)
+			<br/>
+			(add)压缩样式文件
+			<br/>
+			(add)保存结果文件
+		</p>
+	</body>
+</html>
